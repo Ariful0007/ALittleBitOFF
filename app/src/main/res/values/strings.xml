@@ -1,0 +1,28 @@
+<resources>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Enter Password</string>
+    <string name="app_name">Books</string>
+
+    <string name="ss">Welcome to EPCL. Take a step you can shine your life.</string>
+    <string name="register">Register</string>
+
+    <!--Navigation drawer items-->
+    <string name="action_settings">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <!-- Preference Titles -->
+
+    <!-- Messages Preferences -->
+
+    <!-- Sync Preferences -->
+
+
+    ///
+
+    <!-- TODO: Remove or change this placeholder text -->
+</resources>

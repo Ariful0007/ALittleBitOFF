@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+   <LinearLayout
+       android:layout_marginTop="10dp"
+       android:layout_marginRight="20dp"
+       android:layout_marginLeft="20dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       >
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           >
+           <androidx.cardview.widget.CardView
+               android:id="@+id/referCard"
+               android:layout_width="0dp"
+
+               android:layout_height="140dp"
+               android:layout_weight="1"
+               app:cardBackgroundColor="#fefae7"
+               app:cardUseCompatPadding="true"
+               app:cardElevation="4dp"
+               app:cardCornerRadius="2dp"
+               android:layout_marginLeft="0dp"
+               android:clickable="true"
+               android:foreground="?attr/selectableItemBackground">
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
+               <LinearLayout
+                   android:orientation="vertical"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   >
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal"
+                       >
+                       <RelativeLayout
+
+                           android:layout_width="0dp"
+
+                           android:layout_height="60dp"
+                           android:layout_weight="1"
+                           android:background="@drawable/gradient_background"
+                           android:layout_marginLeft="0dp"
+                           android:clickable="true"
+                           android:foreground="?attr/selectableItemBackground">
+
+                           <RelativeLayout
+                               android:layout_width="match_parent"
+                               android:layout_height="match_parent">
+                               <TextView
+                                   android:id="@+id/amount"
+                                   android:layout_centerHorizontal="false"
+
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:layout_alignParentLeft="true"
+                                   android:layout_centerInParent="false"
+                                   android:padding="8dp"
+                                   android:layout_marginLeft="0dp"
+                                   android:textSize="12dp"
+                                   android:textAlignment="center"
+                                   android:textColor="@color/material_drawer_header_selection_subtext"
+                                   android:fontFamily="@font/josefinsans_semibold"
+                                   android:text="Today's Income"
+                                   android:gravity="center_horizontal" />
+                               <TextView
+                                   android:layout_below="@id/amount"
+                                   android:id="@+id/todays"
+                                   android:layout_centerHorizontal="true"
+
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:layout_alignParentLeft="true"
+                                   android:layout_centerInParent="false"
+                                   android:layout_marginLeft="0dp"
+                                   android:textSize="15dp"
+                                   android:textStyle="bold"
+                                   android:textAlignment="center"
+                                   android:textColor="@color/toolbar"
+
+                                   android:fontFamily="@font/josefinsans_semibold"
+                                   android:text="0"
+                                   android:gravity="center_horizontal" />
+
+                           </RelativeLayout>
+                       </RelativeLayout>
+                   </LinearLayout>
+                   //2
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal"
+                       >
+                       <RelativeLayout
+
+                           android:layout_width="0dp"
+
+                           android:layout_height="60dp"
+                           android:layout_weight="1"
+                           android:layout_marginLeft="0dp"
+                           android:clickable="true"
+                           android:foreground="?attr/selectableItemBackground">
+
+                           <RelativeLayout
+                               android:layout_width="match_parent"
+                               android:layout_height="match_parent">
+                               <TextView
+                                   android:id="@+id/amount"
+                                   android:layout_centerHorizontal="false"
+
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:layout_alignParentLeft="true"
+                                   android:layout_centerInParent="false"
+                                   android:padding="8dp"
+                                   android:layout_marginLeft="0dp"
+                                   android:textSize="12dp"
+                                   android:textAlignment="center"
+                                   android:textColor="@color/material_drawer_header_selection_subtext"
+                                   android:fontFamily="@font/josefinsans_semibold"
+                                   android:text="Today's Income"
+                                   android:gravity="center_horizontal" />
+                               <TextView
+                                   android:layout_below="@id/amount"
+                                   android:id="@+id/todays"
+                                   android:layout_centerHorizontal="true"
+
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:layout_alignParentLeft="true"
+                                   android:layout_centerInParent="false"
+                                   android:layout_marginLeft="0dp"
+                                   android:textSize="15dp"
+                                   android:textStyle="bold"
+                                   android:textAlignment="center"
+                                   android:textColor="@color/toolbar"
+
+                                   android:fontFamily="@font/josefinsans_semibold"
+                                   android:text="0"
+                                   android:gravity="center_horizontal" />
+
+                           </RelativeLayout>
+                       </RelativeLayout>
+                       //2
+                       <RelativeLayout
+
+                           android:layout_width="0dp"
+
+                           android:layout_height="60dp"
+                           android:layout_weight="1"
+
+                           android:layout_marginLeft="0dp"
+                           android:clickable="true"
+                           android:foreground="?attr/selectableItemBackground">
+
+                           <RelativeLayout
+                               android:layout_width="match_parent"
+                               android:layout_height="match_parent">
+                               <TextView
+                                   android:id="@+id/amount"
+                                   android:layout_centerHorizontal="false"
+
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:layout_alignParentLeft="true"
+                                   android:layout_centerInParent="false"
+                                   android:padding="8dp"
+                                   android:layout_marginLeft="0dp"
+                                   android:textSize="12dp"
+                                   android:textAlignment="center"
+                                   android:textColor="@color/material_drawer_header_selection_subtext"
+                                   android:fontFamily="@font/josefinsans_semibold"
+                                   android:text="Today's Income"
+                                   android:gravity="center_horizontal" />
+                               <TextView
+                                   android:layout_below="@id/amount"
+                                   android:id="@+id/todays"
+                                   android:layout_centerHorizontal="true"
+
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:layout_alignParentLeft="true"
+                                   android:layout_centerInParent="false"
+                                   android:layout_marginLeft="0dp"
+                                   android:textSize="15dp"
+                                   android:textStyle="bold"
+                                   android:textAlignment="center"
+                                   android:textColor="@color/toolbar"
+
+                                   android:fontFamily="@font/josefinsans_semibold"
+                                   android:text="0"
+                                   android:gravity="center_horizontal" />
+
+                           </RelativeLayout>
+                       </RelativeLayout>
+                       //
+                       <RelativeLayout
+
+                           android:layout_width="0dp"
+
+                           android:layout_height="60dp"
+                           android:layout_weight="1"
+
+                           android:layout_marginLeft="0dp"
+                           android:clickable="true"
+                           android:foreground="?attr/selectableItemBackground">
+
+                           <RelativeLayout
+                               android:layout_width="match_parent"
+                               android:layout_height="match_parent">
+                               <TextView
+                                   android:id="@+id/amount"
+                                   android:layout_centerHorizontal="false"
+
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:layout_alignParentLeft="true"
+                                   android:layout_centerInParent="false"
+                                   android:padding="8dp"
+                                   android:layout_marginLeft="0dp"
+                                   android:textSize="12dp"
+                                   android:textAlignment="center"
+                                   android:textColor="@color/material_drawer_header_selection_subtext"
+                                   android:fontFamily="@font/josefinsans_semibold"
+                                   android:text="Today's Income"
+                                   android:gravity="center_horizontal" />
+                               <TextView
+                                   android:layout_below="@id/amount"
+                                   android:id="@+id/todays"
+                                   android:layout_centerHorizontal="true"
+
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:layout_alignParentLeft="true"
+                                   android:layout_centerInParent="false"
+                                   android:layout_marginLeft="0dp"
+                                   android:textSize="15dp"
+                                   android:textStyle="bold"
+                                   android:textAlignment="center"
+                                   android:textColor="@color/toolbar"
+
+                                   android:fontFamily="@font/josefinsans_semibold"
+                                   android:text="0"
+                                   android:gravity="center_horizontal" />
+
+                           </RelativeLayout>
+                       </RelativeLayout>
+                   </LinearLayout>
+               </LinearLayout>
+           </RelativeLayout>
+           </androidx.cardview.widget.CardView>
+
+       </LinearLayout>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           >
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               >
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="50dp"
+    >
+    <TextView
+        android:padding="4dp"
+        android:gravity="center_vertical"
+        android:textStyle="normal"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="@drawable/bard"
+        android:text="How to create account"
+        android:textAlignment="center"
+        >
+
+    </TextView>
+</RelativeLayout>
+               //2
+               <RelativeLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="50dp"
+                   >
+                   <TextView
+                       android:padding="4dp"
+                       android:gravity="center_vertical"
+                       android:textStyle="normal"
+                       android:layout_marginRight="5dp"
+                       android:layout_marginLeft="5dp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="50dp"
+                       android:background="@drawable/bard"
+                       android:text="How to create account"
+                       android:textAlignment="center"
+                       >
+
+                   </TextView>
+               </RelativeLayout>
+               //3
+               <RelativeLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="50dp"
+                   >
+                   <TextView
+                       android:padding="4dp"
+                       android:gravity="center_vertical"
+                       android:textStyle="normal"
+                       android:layout_marginRight="5dp"
+                       android:layout_marginLeft="5dp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="50dp"
+                       android:background="@drawable/bard"
+                       android:text="How to create account"
+                       android:textAlignment="center"
+                       >
+
+                   </TextView>
+               </RelativeLayout>
+               //4
+               <RelativeLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="50dp"
+                   >
+                   <TextView
+                       android:padding="4dp"
+                       android:gravity="center_vertical"
+                       android:textStyle="normal"
+                       android:layout_marginRight="5dp"
+                       android:layout_marginLeft="5dp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="50dp"
+                       android:background="@drawable/bard"
+                       android:text="How to create account"
+                       android:textAlignment="center"
+                       >
+
+                   </TextView>
+               </RelativeLayout>
+               //5
+               <RelativeLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="50dp"
+                   >
+                   <TextView
+                       android:padding="4dp"
+                       android:gravity="center_vertical"
+                       android:textStyle="normal"
+                       android:layout_marginRight="5dp"
+                       android:layout_marginLeft="5dp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="50dp"
+                       android:background="@drawable/bard"
+                       android:text="How to create account"
+                       android:textAlignment="center"
+                       >
+
+                   </TextView>
+               </RelativeLayout>
+               //6
+               <RelativeLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="50dp"
+                   >
+                   <TextView
+                       android:padding="4dp"
+                       android:gravity="center_vertical"
+                       android:textStyle="normal"
+                       android:layout_marginRight="5dp"
+                       android:layout_marginLeft="5dp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="50dp"
+                       android:background="@drawable/bard"
+                       android:text="How to create account"
+                       android:textAlignment="center"
+                       >
+
+                   </TextView>
+               </RelativeLayout>
+           </LinearLayout>
+       </LinearLayout>
+   </LinearLayout>
+</RelativeLayout>
