@@ -56,7 +56,7 @@ public class Registered extends AppCompatActivity {
     ImageView setup_image;
     TextView changeProfilePhoto;
     String phone_numebr;
-    EditText username,fullname,location;
+    EditText username,fullname,location,phoneNumber,emial;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +76,8 @@ public class Registered extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_myarrow);
         getSupportActionBar().setElevation(10.0f);
         getSupportActionBar().setElevation(10.0f);
+        phoneNumber=findViewById(R.id.phoneNumber);
+        emial=findViewById(R.id.emial);
         try {
             phone_numebr=getIntent().getStringExtra("number");
         }catch (Exception e) {
@@ -118,7 +120,7 @@ public class Registered extends AppCompatActivity {
                 String usernamemain=username.getText().toString();
                 String fullnamemain=fullname.getText().toString();
                 String locationmain=location.getText().toString();
-                if (TextUtils.isEmpty(usernamemain)|| TextUtils.isEmpty(fullnamemain)||
+                if (TextUtils.isEmpty(phoneNumber.getText().toString())||TextUtils.isEmpty(emial.getText().toString())||TextUtils.isEmpty(usernamemain)|| TextUtils.isEmpty(fullnamemain)||
                         TextUtils.isEmpty(locationmain)) {
                     Toasty.error(getApplicationContext(),"Enter all information",Toasty.LENGTH_SHORT,true).show();
                     return;

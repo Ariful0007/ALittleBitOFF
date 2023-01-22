@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:title="Profile Information"
+        android:id="@+id/bottom_chat"
+        android:icon="@drawable/myuser"/>
+    <item android:title="Share New Books"
+        android:id="@+id/bottom_home"
+        android:icon="@drawable/add"/>
+    <item android:title="Settings"
+        android:id="@+id/work"
+        android:icon="@drawable/setting"/>
+
+    <item android:title="Sign Out"
+        android:id="@+id/profile"
+        android:icon="@drawable/shutdown"/>
+
+    <item android:title="My Shared Book List"
+        android:id="@+id/shared"
+        android:icon="@drawable/history"/>
+</menu>

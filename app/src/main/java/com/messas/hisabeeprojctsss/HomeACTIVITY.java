@@ -1,7 +1,10 @@
 package com.messas.hisabeeprojctsss;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,10 +12,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
@@ -32,6 +37,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.kaopiz.kprogresshud.KProgressHUD;
 import com.mikepenz.crossfadedrawerlayout.view.CrossfadeDrawerLayout;
 import com.mikepenz.materialdrawer.Drawer;
@@ -44,6 +50,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import es.dmoral.toasty.Toasty;
 
 public class HomeACTIVITY extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private Toolbar mainToolbar;
@@ -65,6 +72,7 @@ public class HomeACTIVITY extends AppCompatActivity implements NavigationView.On
     HomeFragment homeFragment;
     AdvanceFragment ourplanFragment;
     SequrityFragment profileFragment;
+    ProfileFragment myprofile;
 
 
 
@@ -132,6 +140,7 @@ public class HomeACTIVITY extends AppCompatActivity implements NavigationView.On
         homeFragment=new HomeFragment();
         ourplanFragment=new AdvanceFragment();
         profileFragment=new SequrityFragment();
+        myprofile=new ProfileFragment();
 
 
         mainBottomNav.setOnNavigationItemSelectedListener(selectlistner);
@@ -153,6 +162,9 @@ public class HomeACTIVITY extends AppCompatActivity implements NavigationView.On
                     case R.id.work:
                         replaceFragment(profileFragment);
                         return true;
+                    case R.id.profile:
+                        replaceFragment(myprofile);
+                        return true;
 
 
 
@@ -161,14 +173,148 @@ public class HomeACTIVITY extends AppCompatActivity implements NavigationView.On
                 }
             }
         });
+        /////drawar
+        mainDrawer=findViewById(R.id.main_activity);
+        mainNav = findViewById(R.id.main_nav);
+        mainNav.setNavigationItemSelectedListener(this);
+
+        mainToggle = new ActionBarDrawerToggle(this,mainDrawer,toolbar,R.string.open,R.string.close);
+        mainDrawer.addDrawerListener(mainToggle);
+        mainDrawer.addDrawerListener(mainToggle);
+        mainToggle.setDrawerIndicatorEnabled(true);
+        mainToggle.syncState();
+        //////textview count
+        firebaseFirestore=FirebaseFirestore.getInstance();
+        firebaseAuth=FirebaseAuth.getInstance();
+
+        totalamount=findViewById(R.id.totalamount);
+        todays=findViewById(R.id.todays);
+        todays___=findViewById(R.id.todays___);
+        todayrequests=findViewById(R.id.todayrequests);
+        ////
+        firebaseFirestore.collection("Books")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()) {
+                            int ncount=0;
+                            int count = 0;
+                            for (DocumentSnapshot document : task.getResult()) {
+                                count++;
+                            }
+                            totalamount.setText(""+count);
 
 
+                        }
+                    }
+                });
+        firebaseFirestore.collection("History").document(firebaseAuth.getCurrentUser().getEmail()).collection("List")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()) {
+                            int ncount=0;
+                            int count = 0;
+                            for (DocumentSnapshot document : task.getResult()) {
+                                count++;
+                            }
+                            todays.setText(""+count);
+
+
+                        }
+                    }
+                });
+        firebaseFirestore.collection("Request_History").document(firebaseAuth.getCurrentUser().getEmail()).collection("List")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()) {
+                            int ncount=0;
+                            int count = 0;
+                            for (DocumentSnapshot document : task.getResult()) {
+                                count++;
+                            }
+                            todays___.setText(""+count);
+
+
+                        }
+                    }
+                });
+        firebaseFirestore.collection("Requested_History").document(firebaseAuth.getCurrentUser().getEmail()).collection("List")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()) {
+                            int ncount=0;
+                            int count = 0;
+                            for (DocumentSnapshot document : task.getResult()) {
+                                count++;
+                            }
+                            todayrequests.setText(""+count);
+
+
+                        }
+                    }
+                });
+
+
+
+    }
+    TextView totalamount,todays,todays___,todayrequests;
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id=item.getItemId();
+        switch (id) {
+            case R.id.bottom_chat:
+                startActivity(new Intent(getApplicationContext(),ProfileActivity2.class));
+            break;
+            //2
+            case R.id.bottom_home:
+                startActivity(new Intent(getApplicationContext(),Addbooks.class));
+                break;
+                //3
+            case R.id.work:
+                startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
+                break;
+                //4
+            case R.id.profile:
+               AlertDialog.Builder builder=new AlertDialog.Builder(HomeACTIVITY.this);
+               builder.setTitle("Confirmation")
+                       .setMessage("Do you want to logout?")
+                       .setPositiveButton("No", new DialogInterface.OnClickListener() {
+                           @Override
+                           public void onClick(DialogInterface dialog, int which) {
+                               dialog.dismiss();
+                           }
+                       }).setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                   @Override
+                   public void onClick(DialogInterface dialog, int which) {
+                       dialog.dismiss();
+                       finishAffinity();
+                   }
+               }).create();
+               builder.show();
+                break;
+                //6
+            case R.id.shared:
+                startActivity(new Intent(getApplicationContext(),HistoryActivity.class));
+                break;
+
+
+
+        }
+
+        return false;
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
 
-        getMenuInflater().inflate(R.menu.tamim,menu);
+
         return true;
 
     }
@@ -275,11 +421,13 @@ public class HomeACTIVITY extends AppCompatActivity implements NavigationView.On
         if (fragment == homeFragment){
             fragmentTransaction.hide(ourplanFragment);
             fragmentTransaction.hide(profileFragment);
+            fragmentTransaction.hide(myprofile);
 
 
         } else if (fragment == ourplanFragment){
             fragmentTransaction.hide(homeFragment);
             fragmentTransaction.hide(profileFragment);
+            fragmentTransaction.hide(myprofile);
 
 
         }
@@ -287,7 +435,13 @@ public class HomeACTIVITY extends AppCompatActivity implements NavigationView.On
         else if(fragment==profileFragment) {
             fragmentTransaction.hide(ourplanFragment);
             fragmentTransaction.hide(homeFragment);
+            fragmentTransaction.hide(myprofile);
 
+        }
+        else  if(fragment==myprofile) {
+            fragmentTransaction.hide(ourplanFragment);
+            fragmentTransaction.hide(homeFragment);
+            fragmentTransaction.hide(profileFragment);
         }
 
 
@@ -300,21 +454,19 @@ public class HomeACTIVITY extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.add(R.id.main_container,homeFragment);
         fragmentTransaction.add(R.id.main_container,ourplanFragment);
         fragmentTransaction.add(R.id.main_container,profileFragment);
+        fragmentTransaction.add(R.id.main_container,myprofile);
 
         fragmentTransaction.hide(homeFragment);
 
         fragmentTransaction.hide(profileFragment);
-
+        fragmentTransaction.hide(myprofile);
 
 
         fragmentTransaction.commit();
 
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return false;
-    }
+
 
     public void logout(View view) {
       //  startActivity(new Intent(getApplicationContext(),NotificationActivity.class));

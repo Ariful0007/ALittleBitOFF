@@ -72,11 +72,11 @@
                                    android:textAlignment="center"
                                    android:textColor="@color/material_drawer_header_selection_subtext"
                                    android:fontFamily="@font/josefinsans_semibold"
-                                   android:text="Today's Income"
+                                   android:text="Total Book"
                                    android:gravity="center_horizontal" />
                                <TextView
                                    android:layout_below="@id/amount"
-                                   android:id="@+id/todays"
+                                   android:id="@+id/totalamount"
                                    android:layout_centerHorizontal="true"
 
                                    android:layout_width="match_parent"
@@ -106,7 +106,8 @@
 
                            android:layout_width="0dp"
 
-                           android:layout_height="60dp"
+                           android:layout_height="wrap_content"
+                           android:minHeight="80dp"
                            android:layout_weight="1"
                            android:layout_marginLeft="0dp"
                            android:clickable="true"
@@ -125,11 +126,11 @@
                                    android:layout_centerInParent="false"
                                    android:padding="8dp"
                                    android:layout_marginLeft="0dp"
-                                   android:textSize="12dp"
+                                   android:textSize="8dp"
                                    android:textAlignment="center"
                                    android:textColor="@color/material_drawer_header_selection_subtext"
                                    android:fontFamily="@font/josefinsans_semibold"
-                                   android:text="Today's Income"
+                                   android:text="My Total Book"
                                    android:gravity="center_horizontal" />
                                <TextView
                                    android:layout_below="@id/amount"
@@ -141,7 +142,7 @@
                                    android:layout_alignParentLeft="true"
                                    android:layout_centerInParent="false"
                                    android:layout_marginLeft="0dp"
-                                   android:textSize="15dp"
+                                   android:textSize="8dp"
                                    android:textStyle="bold"
                                    android:textAlignment="center"
                                    android:textColor="@color/toolbar"
@@ -157,7 +158,8 @@
 
                            android:layout_width="0dp"
 
-                           android:layout_height="60dp"
+                           android:layout_height="wrap_content"
+                           android:minHeight="80dp"
                            android:layout_weight="1"
 
                            android:layout_marginLeft="0dp"
@@ -168,7 +170,7 @@
                                android:layout_width="match_parent"
                                android:layout_height="match_parent">
                                <TextView
-                                   android:id="@+id/amount"
+                                   android:id="@+id/myrequest"
                                    android:layout_centerHorizontal="false"
 
                                    android:layout_width="match_parent"
@@ -177,15 +179,15 @@
                                    android:layout_centerInParent="false"
                                    android:padding="8dp"
                                    android:layout_marginLeft="0dp"
-                                   android:textSize="12dp"
+                                   android:textSize="8dp"
                                    android:textAlignment="center"
                                    android:textColor="@color/material_drawer_header_selection_subtext"
                                    android:fontFamily="@font/josefinsans_semibold"
-                                   android:text="Today's Income"
+                                   android:text="Requested Book"
                                    android:gravity="center_horizontal" />
                                <TextView
-                                   android:layout_below="@id/amount"
-                                   android:id="@+id/todays"
+                                   android:layout_below="@id/myrequest"
+                                   android:id="@+id/todays___"
                                    android:layout_centerHorizontal="true"
 
                                    android:layout_width="match_parent"
@@ -193,7 +195,7 @@
                                    android:layout_alignParentLeft="true"
                                    android:layout_centerInParent="false"
                                    android:layout_marginLeft="0dp"
-                                   android:textSize="15dp"
+                                   android:textSize="8dp"
                                    android:textStyle="bold"
                                    android:textAlignment="center"
                                    android:textColor="@color/toolbar"
@@ -209,7 +211,8 @@
 
                            android:layout_width="0dp"
 
-                           android:layout_height="60dp"
+                           android:layout_height="wrap_content"
+                           android:minHeight="80dp"
                            android:layout_weight="1"
 
                            android:layout_marginLeft="0dp"
@@ -229,15 +232,15 @@
                                    android:layout_centerInParent="false"
                                    android:padding="8dp"
                                    android:layout_marginLeft="0dp"
-                                   android:textSize="12dp"
+                                   android:textSize="8dp"
                                    android:textAlignment="center"
                                    android:textColor="@color/material_drawer_header_selection_subtext"
                                    android:fontFamily="@font/josefinsans_semibold"
-                                   android:text="Today's Income"
+                                   android:text="Request"
                                    android:gravity="center_horizontal" />
                                <TextView
                                    android:layout_below="@id/amount"
-                                   android:id="@+id/todays"
+                                   android:id="@+id/todayrequests"
                                    android:layout_centerHorizontal="true"
 
                                    android:layout_width="match_parent"
@@ -245,7 +248,7 @@
                                    android:layout_alignParentLeft="true"
                                    android:layout_centerInParent="false"
                                    android:layout_marginLeft="0dp"
-                                   android:textSize="15dp"
+                                   android:textSize="8dp"
                                    android:textStyle="bold"
                                    android:textAlignment="center"
                                    android:textColor="@color/toolbar"
@@ -267,131 +270,7 @@
            android:layout_height="wrap_content"
            android:orientation="vertical"
            >
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:orientation="horizontal"
-               >
-<RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="50dp"
-    >
-    <TextView
-        android:padding="4dp"
-        android:gravity="center_vertical"
-        android:textStyle="normal"
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:background="@drawable/bard"
-        android:text="How to create account"
-        android:textAlignment="center"
-        >
 
-    </TextView>
-</RelativeLayout>
-               //2
-               <RelativeLayout
-                   android:layout_width="wrap_content"
-                   android:layout_height="50dp"
-                   >
-                   <TextView
-                       android:padding="4dp"
-                       android:gravity="center_vertical"
-                       android:textStyle="normal"
-                       android:layout_marginRight="5dp"
-                       android:layout_marginLeft="5dp"
-                       android:layout_width="wrap_content"
-                       android:layout_height="50dp"
-                       android:background="@drawable/bard"
-                       android:text="How to create account"
-                       android:textAlignment="center"
-                       >
-
-                   </TextView>
-               </RelativeLayout>
-               //3
-               <RelativeLayout
-                   android:layout_width="wrap_content"
-                   android:layout_height="50dp"
-                   >
-                   <TextView
-                       android:padding="4dp"
-                       android:gravity="center_vertical"
-                       android:textStyle="normal"
-                       android:layout_marginRight="5dp"
-                       android:layout_marginLeft="5dp"
-                       android:layout_width="wrap_content"
-                       android:layout_height="50dp"
-                       android:background="@drawable/bard"
-                       android:text="How to create account"
-                       android:textAlignment="center"
-                       >
-
-                   </TextView>
-               </RelativeLayout>
-               //4
-               <RelativeLayout
-                   android:layout_width="wrap_content"
-                   android:layout_height="50dp"
-                   >
-                   <TextView
-                       android:padding="4dp"
-                       android:gravity="center_vertical"
-                       android:textStyle="normal"
-                       android:layout_marginRight="5dp"
-                       android:layout_marginLeft="5dp"
-                       android:layout_width="wrap_content"
-                       android:layout_height="50dp"
-                       android:background="@drawable/bard"
-                       android:text="How to create account"
-                       android:textAlignment="center"
-                       >
-
-                   </TextView>
-               </RelativeLayout>
-               //5
-               <RelativeLayout
-                   android:layout_width="wrap_content"
-                   android:layout_height="50dp"
-                   >
-                   <TextView
-                       android:padding="4dp"
-                       android:gravity="center_vertical"
-                       android:textStyle="normal"
-                       android:layout_marginRight="5dp"
-                       android:layout_marginLeft="5dp"
-                       android:layout_width="wrap_content"
-                       android:layout_height="50dp"
-                       android:background="@drawable/bard"
-                       android:text="How to create account"
-                       android:textAlignment="center"
-                       >
-
-                   </TextView>
-               </RelativeLayout>
-               //6
-               <RelativeLayout
-                   android:layout_width="wrap_content"
-                   android:layout_height="50dp"
-                   >
-                   <TextView
-                       android:padding="4dp"
-                       android:gravity="center_vertical"
-                       android:textStyle="normal"
-                       android:layout_marginRight="5dp"
-                       android:layout_marginLeft="5dp"
-                       android:layout_width="wrap_content"
-                       android:layout_height="50dp"
-                       android:background="@drawable/bard"
-                       android:text="How to create account"
-                       android:textAlignment="center"
-                       >
-
-                   </TextView>
-               </RelativeLayout>
-           </LinearLayout>
        </LinearLayout>
    </LinearLayout>
 </RelativeLayout>
