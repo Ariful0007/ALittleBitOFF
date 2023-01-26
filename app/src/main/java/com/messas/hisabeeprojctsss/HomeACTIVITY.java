@@ -294,6 +294,7 @@ public class HomeACTIVITY extends AppCompatActivity implements NavigationView.On
                    @Override
                    public void onClick(DialogInterface dialog, int which) {
                        dialog.dismiss();
+                       firebaseAuth.signOut();
                        finishAffinity();
                    }
                }).create();

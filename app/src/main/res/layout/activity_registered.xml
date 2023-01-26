@@ -176,7 +176,71 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/space_50dp"
                 ></EditText>
-            //
+            //phone
+            <TextView
+
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/space_10dp"
+                android:layout_marginRight="@dimen/space_10dp"
+                android:gravity="center_vertical"
+                android:text="Enter Phone number"
+                android:textStyle="normal"
+                android:fontFamily="@font/josefinsans_regular"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+
+
+                ></TextView>
+            <EditText
+                android:maxLength="50"
+                android:id="@+id/phoneNumber"
+                android:hint="      Enter your Phone number"
+                android:background="@drawable/border"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textAlignment="center"
+                android:inputType="textEmailAddress"
+                android:layout_marginRight="@dimen/space_20dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_50dp"
+                ></EditText>
+            //email
+            <TextView
+
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/space_10dp"
+                android:layout_marginRight="@dimen/space_10dp"
+                android:gravity="center_vertical"
+                android:text="Enter Email"
+                android:textStyle="normal"
+                android:fontFamily="@font/josefinsans_regular"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+
+
+                ></TextView>
+            <EditText
+                android:maxLength="50"
+                android:id="@+id/emial"
+                android:hint="      Enter your Email"
+                android:background="@drawable/border"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textAlignment="center"
+                android:inputType="textEmailAddress"
+                android:layout_marginRight="@dimen/space_20dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_50dp"
+                ></EditText>
+
 
 
             <Button

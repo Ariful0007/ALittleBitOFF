@@ -1,6 +1,16 @@
 <resources>
     <!-- Base application theme. -->
     <!--designs for login and register-->
+    <style name="AppTheme.RoundedCornerMaterialButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/rounded_shape</item>
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+    </style>
+
+
     <color name="dark_blue">#23283a</color>
     <style name="navStyle" parent="android:TextAppearance">
         <item name="fontFamily">@font/circular_std_book</item>

@@ -4,9 +4,9 @@
     <string name="app_name">Books</string>
     <string name="open">open</string>
     <!-- Login section! -->
-    <!-- Registration section! -->
-    <!-- Recovery section! -->
 
+    <string name="signup_login_hint">Already have an account? Sign In</string>
+    <string name="work">0.00</string>
     <string name="close">close</string>
     <string name="ss">Welcome to EPCL. Take a step you can shine your life.</string>
     <string name="register">Register</string>
