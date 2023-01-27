@@ -1,21 +1,28 @@
 package com.messas.hisabeeprojctsss;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
 import java.util.ArrayList;
 import java.util.List;
-public class DatabaseHandler extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "User";
-    private static final String TABLE_CONTACTS = "User";
-    private static final String KEY_ID = "username";
-    private static final String KEY_NAME = "name";
-    private static final String KEY_PH_NO = "number";
-    private static final String PASS = "pass";
 
-    public DatabaseHandler(Context context) {
+public class BorrowbaseHandler extends SQLiteOpenHelper {
+    private static final int DATABASE_VERSION = 1;
+    private static final String DATABASE_NAME = "Request_History";
+    private static final String TABLE_CONTACTS = "category";
+    private static final String KEY_ID = "id";
+    private static final String KEY_NAME = "name";
+    private static final String KEY_PH_NO = "phone_number";
+    private static final String AUTHORNAME = "auth_name";
+    private static final String FLAG = "0";
+    private static final String OWNerName = "0";
+    private static final String MobileNumber = "0";
+    private static final String TIME = String.valueOf(System.currentTimeMillis()/10000);
+
+    public BorrowbaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         //3rd argument to be passed is CursorFactory instance
     }
@@ -26,7 +33,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-                + KEY_PH_NO + " TEXT" + PASS + " TEXT "+ ")";
+                + KEY_PH_NO + " TEXT" + AUTHORNAME + " TEXT "+ FLAG + " TEXT"+ TIME + " TEXT"+ OWNerName + " TEXT"+ MobileNumber + " TEXT"+ ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
 
@@ -45,10 +52,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_NAME, contact.getName()); // Contact Name
-        values.put(KEY_PH_NO, contact.getPhoneNumber()); // Contact Phone
-        values.put(KEY_ID, contact.getName()); // Contact Name
-        values.put(PASS, contact.getPhoneNumber()); // Contact Phone
+        values.put(KEY_NAME, contact.getName());
+        values.put(KEY_PH_NO, contact.getPhoneNumber());
+        values.put(AUTHORNAME, contact.getName());
+        values.put(TIME, contact.getPhoneNumber());
+        values.put(FLAG, contact.getName()); // Contact Phone
+
         // Inserting Row
         db.insert(TABLE_CONTACTS, null, values);
         //2nd argument is String containing nullColumnHack
@@ -103,6 +112,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, contact.getName());
         values.put(KEY_PH_NO, contact.getPhoneNumber());
+        values.put(AUTHORNAME, contact.getName());
+        values.put(TIME, contact.getPhoneNumber());
+        values.put(FLAG, contact.getName());
+
 
         // updating row
         return db.update(TABLE_CONTACTS, values, KEY_ID + " = ?",
