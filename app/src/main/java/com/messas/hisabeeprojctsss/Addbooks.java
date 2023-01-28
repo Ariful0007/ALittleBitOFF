@@ -16,6 +16,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -40,6 +41,7 @@ import com.google.firebase.storage.UploadTask;
 import com.kaopiz.kprogresshud.KProgressHUD;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 import es.dmoral.toasty.Toasty;
@@ -182,6 +184,7 @@ public class Addbooks extends AppCompatActivity implements AdapterView.OnItemSel
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if (task.isSuccessful()) {
+                                                        addbooks();
                                                         firebaseFirestore.collection("Booklist")
                                                                 .document(main)
                                                                 .collection("List")
@@ -226,6 +229,25 @@ public class Addbooks extends AppCompatActivity implements AdapterView.OnItemSel
 
 
     }
+
+    private void addbooks() {
+        BookbaseHandler db = new BookbaseHandler(this);
+        db.addContact(new Contact("name", username.getText().toString()));
+        db.addContact(new Contact("auth_name", author_name.getText().toString()));
+        db.addContact(new Contact("category", main));
+        db.addContact(new Contact("phone_number", UserSession.KEY_MOBiLE));
+        db.addContact(new Contact("flag", "0"));
+
+        // Reading all contacts
+        Log.d("Reading: ", "Reading all contacts..");
+        List<Contact> contacts = db.getAllContacts();
+
+        for (Contact cn : contacts) {
+            String log = cn.getName();
+        }
+
+    }
+
     @Override
     public boolean onSupportNavigateUp() {
         startActivity(new Intent(getApplicationContext(),HomeACTIVITY.class));

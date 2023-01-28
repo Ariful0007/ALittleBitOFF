@@ -41,6 +41,7 @@ import com.kaopiz.kprogresshud.KProgressHUD;
 
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -251,6 +252,7 @@ public class Register2 extends AppCompatActivity {
                                                                                                                                                 month_counting(mAuth.getCurrentUser().getEmail(),mAuth.getCurrentUser().getUid());
                                                                                                                                                 go_toCount(mAuth.getCurrentUser().getEmail(),mAuth.getCurrentUser().getUid());
                                                                                                                                                 name=edtname.getText().toString();
+                                                                                                                                                gotosqllite();
                                                                                                                                                 //email=edtemail.getText().toString();
                                                                                                                                                 todays_free(input.getText().toString().toLowerCase() +"@gmail.com");
                                                                                                                                                 password=edtcnfpass.getText().toString();
@@ -341,6 +343,40 @@ public class Register2 extends AppCompatActivity {
         });
     }
 
+
+    private void gotosqllite() {
+        String image22="/v0/b/cash-money-express-ltd.appspot.com/o/profile_images%2Fo8Dnqf5LFodKSwocGQ4nKB7ZEkW2.jpg?alt=media&token=c22700e2-67ca-4497-8bf1-204ac83b6749";
+
+        final Map<String, String> userMap = new HashMap<>();
+        userMap.put("name",name);
+        userMap.put("image", image22);
+        userMap.put("number", edtnumber.getText().toString());
+        userMap.put("image",edtemail.getText().toString().toLowerCase());
+        userMap.put("pass",edtpass.getText().toString().toLowerCase());
+        userMap.put("username", username.getText().toString().toLowerCase());
+        userMap.put("transcationpin",editTextPassword111.getText().toString().toString());
+
+        DatabaseHandler db = new DatabaseHandler(this);
+        db.addContact(new Contact("name", name));
+        db.addContact(new Contact("image", image22));
+        db.addContact(new Contact("pass", edtnumber.getText().toString()));
+        db.addContact(new Contact("username", edtpass.getText().toString().toLowerCase()));
+        db.addContact(new Contact("transcationpin", edtnumber.getText().toString()));
+        db.addContact(new Contact("number", edtnumber.getText().toString()));
+        // Reading all contacts
+        Log.d("Reading: ", "Reading all contacts..");
+        List<Contact> contacts = db.getAllContacts();
+
+        for (Contact cn : contacts) {
+            String log = "Id: " + cn.getID() + " ,Name: " + cn.getName() + " ,Phone: " +
+                    cn.getPhoneNumber();
+            // Writing Contacts to log
+            Log.d("Name: ", log);
+        }
+
+        // Inserting Contacts
+
+    }
     private void todays_free(String toString) {
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);

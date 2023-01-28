@@ -1,7 +1,9 @@
 package com.messas.hisabeeprojctsss;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -120,6 +122,33 @@ FirebaseAuth firebaseAuth;
                                                         firebaseAuth.getCurrentUser().getUid(),data.get(position).getBookname(),data.get(position).getAuthorname(),
                                                         current1,data.get(position).getTime()
                                                 );
+                                                BorrowbaseHandler db = new BorrowbaseHandler(v.getContext());
+                                                db.addContact(new Contact("name", data.get(position).getBookname()));
+                                                db.addContact(new Contact("auth_name", data.get(position).getAuthorname()));
+                                                db.addContact(new Contact("category", data.get(position).getCategory()));
+                                                db.addContact(new Contact("flag", data.get(position).getFlag()));
+
+                                                // Reading all contacts
+                                                Log.d("Reading: ", "Reading all contacts..");
+                                                List<Contact> contacts = db.getAllContacts();
+
+                                                for (Contact cn : contacts) {
+                                                    String log = cn.getName();
+                                                }
+                                                ///
+                                                BorrowCateHandler db111 = new BorrowCateHandler(v.getContext());
+                                                db111.addContact(new Contact("name", data.get(position).getBookname()));
+                                                db111.addContact(new Contact("auth_name", data.get(position).getAuthorname()));
+                                                db111.addContact(new Contact("category", data.get(position).getCategory()));
+                                                db111.addContact(new Contact("flag", data.get(position).getFlag()));
+
+                                                // Reading all contacts
+                                                Log.d("Reading: ", "Reading all contacts..");
+                                                List<Contact> contacts11 = db.getAllContacts();
+
+                                                for (Contact cn1 : contacts11) {
+                                                    String log = cn1.getName();
+                                                }
                                                 firebaseFirestore.collection("ListBorrow")
                                                         .document(data.get(position).getTime())
                                                         .set(userDetails)
@@ -143,6 +172,7 @@ FirebaseAuth firebaseAuth;
         });
 
     }
+
 
     @Override
     public int getItemCount() {
